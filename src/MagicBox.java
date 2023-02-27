@@ -20,20 +20,20 @@ public class MagicBox<T> {
 
     int nullNumber = 0;
 
-    public T pick() {
+    public T pick() throws RuntimeException {
         for (T item : items) {
             if (item == null) {
                 nullNumber++;
             }
         }
-        if (!Arrays.asList(items).contains(null)) {
+            for (T item1 : items) {
+                if (item1 == null) {
+                    throw new RuntimeException("Коробка не полна. Осталось заполнить ячеек: " + nullNumber);
+                }
+            }
             Random random = new Random();
             int randomInt = random.nextInt(items.length);
             return items[randomInt];
         }
-        String str = "Коробка не полна. Осталось заполнить ячеек: " + nullNumber;
-        T result = (T) str;
-        return result;
     }
-}
 
