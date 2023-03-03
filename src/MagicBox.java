@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class MagicBox<T> {
@@ -18,22 +17,20 @@ public class MagicBox<T> {
         return false;
     }
 
-    int nullNumber = 0;
-
     public T pick() throws RuntimeException {
+        int nullNumber = 0;
         for (T item : items) {
             if (item == null) {
                 nullNumber++;
             }
         }
-            for (T item1 : items) {
-                if (item1 == null) {
-                    throw new RuntimeException("Коробка не полна. Осталось заполнить ячеек: " + nullNumber);
-                }
+        for (T item1 : items) {
+            if (item1 == null) {
+                throw new RuntimeException("Коробка не полна. Осталось заполнить ячеек: " + nullNumber);
             }
-            Random random = new Random();
-            int randomInt = random.nextInt(items.length);
-            return items[randomInt];
         }
+        Random random = new Random();
+        int randomInt = random.nextInt(items.length);
+        return items[randomInt];
     }
-
+}

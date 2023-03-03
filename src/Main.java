@@ -4,7 +4,6 @@ public class Main {
         MagicBox<Number> box2 = new MagicBox<>(new Number[5]);
         box1.add("alpha");
         box1.add("beta");
-//        System.out.println(box1.pick());
         box1.add("gamma");
         System.out.println(box1.pick());
         box2.add(1);
